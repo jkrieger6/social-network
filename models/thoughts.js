@@ -1,7 +1,7 @@
-const { Scehma, model, Types } = require('mongoose');
+const mongoose = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-const ReactionSchema = new Schema(
+const ReactionSchema = new mongoose.Schema(
     {
         // set custom id to avoid confusion with parent thought _id
         reactionId: {
@@ -23,6 +23,9 @@ const ReactionSchema = new Schema(
             // use getter method to format timestamp on query
             get: (createdAtVal) => dateFormat(createdAtVal),
         },
+        reactionCount: {
+            type: Number,
+    },
     },
     {
         toJSON: {
@@ -31,8 +34,12 @@ const ReactionSchema = new Schema(
     }
 );
 
-const ThoughtSchema = new Schema(
+const ThoughtSchema = new mongoose.Schema(
     {
+        thought_Id: {
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId(),
+        },
         thoughtText: {
             type: String,
             required: true,

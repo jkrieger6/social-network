@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
     {
         username: {
             type: String,
@@ -21,11 +21,6 @@ const userSchema = new Schema(
             required: true,
             max_length: 20,
             min_length: 3,
-        },
-    },
-    {   
-        toJSON: {
-            getters: true,
         },
     }
 );
