@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// const { Schema, Types } = require('mongoose'); // is this the correct model setup
 
 const userSchema = new mongoose.Schema(
     {
