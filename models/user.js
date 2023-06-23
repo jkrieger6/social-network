@@ -6,28 +6,27 @@ const userSchema = new mongoose.Schema(
         username: {
             type: String,
             required: true,
-            max_length: 20,
-            min_length: 3,
+            unique: true,
+            trimmed: true,
         },
         email: {
             type: String,
             required: true,
-            max_length: 50,
-            min_length: 3,
-        },
-        password: {
-            type: String,
-            required: true,
-            max_length: 20,
-            min_length: 3,
+            unique: true,
+            match: [/.+@.+\..+/],
         },
         thoughts: [
             {
-                type: Schema.Types.ObjectId,
+                type: mongoose.Schema.Types.ObjectId,
                 ref: 'Thought',
             },
         ],
-        friends: [friendsSchema],
+        friends: [
+            {
+              type: mongoose.Schema.Types.ObjectId,
+              ref: 'User',
+            },
+          ],
     },
     {
         toJSON: {
@@ -37,15 +36,12 @@ const userSchema = new mongoose.Schema(
     }
 );
 
-const friendsSchema = new mongoose.Schema(
-    {
-        friendId: {
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId(),
-        },
-        friendName: String,
-    }
-);
+userSchema
+.virtual('friendCount')
+.get(function () {
+    return this.friends.length;
+})
+
 
 const User = mongoose.model('User', userSchema);
 
