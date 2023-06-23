@@ -1,4 +1,4 @@
-const connection = require('./connection');
+// const connection = require('./connection');
 const { User, Thought } = require('../models');
 
 connection.once('open', async () => {
