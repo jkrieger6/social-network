@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const dateFormat = require('../utils/helpers');
 
 const ReactionSchema = new mongoose.Schema(
     {
