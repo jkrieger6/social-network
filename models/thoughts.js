@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const ReactionSchema = require('./reactions')
+const dateFormat = require('../utils/helpers');
+
 const ThoughtSchema = new mongoose.Schema(
     {
         thoughtText: {
