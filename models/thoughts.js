@@ -21,7 +21,12 @@ const ThoughtSchema = new mongoose.Schema(
             required: true,
         },
         // use ReactionSchema to validate data for a reaction
-        reactions: [ReactionSchema],
+        reactions: [
+            {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Reaction',
+        }
+        ],
     },
     {
         toJSON: {
