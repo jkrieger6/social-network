@@ -10,7 +10,7 @@ connection.once('open', async () => {
      if (users.length) {
         await connection.db.dropCollection('users');
     }
-    users = await User.create({
+    users = await User.collection.insertOne({
         username: 'testuser',
         email: 'testemail@email.com',
         thoughts: [
@@ -26,7 +26,7 @@ connection.once('open', async () => {
     if (thoughts.length) {
         await connection.db.dropCollection('thoughts');
     }
-    thoughts = await Thought.create({
+    thoughts = await Thought.collection.insertOne({
         thoughtText: 'This is a test thought',
         username: 'testuser'
     });
