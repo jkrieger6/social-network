@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { formatDate } = require('../utils/helpers');
+const { ReactionSchema } = require('./reactions.js');
 
 const ThoughtSchema = new mongoose.Schema(
     {
@@ -20,12 +21,7 @@ const ThoughtSchema = new mongoose.Schema(
             required: true,
         },
         // use ReactionSchema to validate data for a reaction
-        reactions: [
-            {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Reaction',
-        }
-        ],
+        reactions: [ReactionSchema],
     },
     {
         toJSON: {
