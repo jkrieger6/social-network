@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dateFormat = require('../utils/helpers');
+const { formatDate } = require('../utils/helpers');
 
 const ReactionSchema = new mongoose.Schema(
     {
@@ -21,7 +21,7 @@ const ReactionSchema = new mongoose.Schema(
             type: Date,
             default: Date.now,
             // use getter method to format timestamp on query
-            get: (createdAtVal) => dateFormat(createdAtVal),
+            get: (createdAtVal) => formatDate(createdAtVal),
         },
         reactionCount: {
             type: Number,
@@ -38,4 +38,4 @@ const ReactionSchema = new mongoose.Schema(
 
 const Reaction = mongoose.model('Reaction', ReactionSchema);
 
-module.exports = Reaction;
+module.exports = { Reaction, ReactionSchema };
