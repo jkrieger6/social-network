@@ -6,7 +6,7 @@ An API for a social network web application where users can share their thoughts
 * This application is a social network API that uses a NoSQL database to handle large amounts of unstructured data. This application uses Express.js for routing, a MongoDB database, and the Mongoose ODM. This application allows users to create, update, and delete users, thoughts, and reactions.
 
 ## Visuals
-* For a walkthrough tutoril on how to use this application, visit the following link: [Walkthrough Video]()
+* For a walkthrough tutoril on how to use this application, visit the following link: [Walkthrough Video](https://drive.google.com/file/d/1kWtv4RwcBHKNthwGaAcBGdUDaAg3OnTo/view)
 ## Installation
 * Node version 16 is required to run this application
 * To install Nodes required packages use the following command(s):
